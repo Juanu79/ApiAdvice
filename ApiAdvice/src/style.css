@@ -1,11 +1,14 @@
 :root {
+  --verde-neon: #39ff14;
+  --azul-oscuro: #0b0c2a;
+
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: var(--verde-neon);
+  background-color: var(--azul-oscuro);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,26 +16,32 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
 body {
   margin: 0;
   display: flex;
-  place-items: center;
-  min-width: 320px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   min-height: 100vh;
+  background-color: var(--azul-oscuro);
+  color: var(--verde-neon);
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+nav {
+  margin-bottom: 2rem;
+}
+
+nav button {
+  margin: 0 5px;
+}
+
+h1, h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--verde-neon);
+  text-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
 }
 
 #app {
@@ -42,6 +51,52 @@ h1 {
   text-align: center;
 }
 
+#consejo-container {
+  background-color: #ffffff;
+  color: var(--azul-oscuro);
+  border-radius: 10px;
+  padding: 2rem;
+  max-width: 600px;
+  box-shadow: 0 0 20px var(--verde-neon);
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+#consejo-container:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 25px var(--verde-neon);
+}
+
+button {
+  border-radius: 8px;
+  border: 2px solid var(--verde-neon);
+  padding: 0.7em 1.5em;
+  font-size: 1em;
+  font-weight: 600;
+  background-color: transparent;
+  color: var(--verde-neon);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(57, 255, 20, 0.2);
+}
+
+button:hover {
+  background-color: var(--verde-neon);
+  color: var(--azul-oscuro);
+  box-shadow: 0 0 15px rgba(57, 255, 20, 0.5);
+}
+
+a {
+  font-weight: 500;
+  color: var(--verde-neon);
+  text-decoration: inherit;
+}
+a:hover {
+  color: #a0ff70;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -49,7 +104,7 @@ h1 {
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em var(--verde-neon));
 }
 .logo.vanilla:hover {
   filter: drop-shadow(0 0 2em #f7df1eaa);
@@ -57,29 +112,14 @@ h1 {
 
 .card {
   padding: 2em;
+  border-radius: 1rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--verde-neon);
+  box-shadow: 0 0 10px rgba(57, 255, 20, 0.1);
 }
 
 .read-the-docs {
   color: #888;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
 @media (prefers-color-scheme: light) {
@@ -87,10 +127,38 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
-  a:hover {
-    color: #747bff;
-  }
   button {
     background-color: #f9f9f9;
+    color: #213547;
+    border-color: #213547;
+  }
+  button:hover {
+    background-color: #213547;
+    color: #ffffff;
+    border-color: #213547;
+  }
+  a {
+    color: #213547;
+  }
+}
+
+@media (max-width: 768px) {
+  h1, h2 {
+    font-size: 2rem;
+  }
+
+  #consejo-container {
+    padding: 1.5rem;
+    font-size: 1rem;
+  }
+
+  button {
+    padding: 0.6em 1.2em;
+    font-size: 0.95em;
+  }
+
+  nav button {
+    margin: 5px 2px;
+    font-size: 0.9em;
   }
 }
